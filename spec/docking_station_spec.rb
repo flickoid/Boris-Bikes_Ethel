@@ -40,6 +40,8 @@ let(:broken_bike)  { double :bike, broken?: true	     }
 		expect(station.available_bikes).to eq([working_bike])
 	end
 
+
+	
 end
 
 
