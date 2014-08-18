@@ -42,6 +42,10 @@ let(:broken_bike)  { double :bike, broken?: true	     }
 		expect(holder.available_bikes).to eq([working_bike])
 	end
 
+	# it "should not let you take a bike out if it's empty" do 
+	# 	expect(-> {holder.release(bike) }).to raise_error if 
 
-	
+	it "should know when it's empty" do 
+		expect(holder).to be_empty
+	end
 end
