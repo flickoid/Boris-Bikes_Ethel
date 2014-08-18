@@ -17,11 +17,13 @@ module BikeContainer
 
 	def dock(bike)
 		raise "Station is full" if full?
+		raise "Sorry, I can only dock bikes" unless bike.is_a? Bike
 		bikes << bike
 	end
 
-	def release(bike)
+	def release(bike = nil)
 		raise "Station is empty" if empty?
+		raise "No bike is selected" if bike == nil
 		bikes.delete(bike)
 	end
 

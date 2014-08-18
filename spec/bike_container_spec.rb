@@ -4,10 +4,10 @@ class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer do
 
-let(:holder)      { ContainerHolder.new					 }
-let(:bike)         { double :bike                        } 
-let(:working_bike) { double :bike, broken?: false        }
-let(:broken_bike)  { double :bike, broken?: true	     }
+let(:holder)       { ContainerHolder.new			     }
+let(:bike)         { double :bike, is_a?: true                        } 
+let(:working_bike) { double :bike, broken?: false, is_a?: true       }
+let(:broken_bike)  { double :bike, broken?: true, is_a?: true		     }
 	
 	def fill_holder(holder)
 		holder.capacity.times { holder.dock(bike) }
@@ -42,14 +42,21 @@ let(:broken_bike)  { double :bike, broken?: true	     }
 		expect(holder.available_bikes).to eq([working_bike])
 	end
 
-	# it "should not let you take a bike out if it's empty" do 
-	# 	expect(-> {holder.release(bike) }).to raise_error if 
-
 	it "should know when it's empty" do 
 		expect(holder).to be_empty
 	end
 
 	it "should not release a bike when it's empty" do 
-		expect(-> {holder.release(bike) }).to raise_error(RuntimeError) if holder.empty?
+		expect(-> { holder.release(bike) }).to raise_error(RuntimeError) if holder.empty?
 	end
+
+	it "should warn you if no bike is selected when using release" do
+		expect(-> { holder.release }).to raise_error(RuntimeError)
+	end
+
+	it "should not accept anything other than a bike" do
+		expect(-> { holder.dock(:not_bike) }).to raise_error "Sorry, I can only dock bikes"
+	end
+
+
 end
