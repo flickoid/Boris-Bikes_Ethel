@@ -4,10 +4,10 @@ class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer do
 
-let(:holder)       { ContainerHolder.new			     }
-let(:bike)         { double :bike, is_a?: true                        } 
-let(:working_bike) { double :bike, broken?: false, is_a?: true       }
-let(:broken_bike)  { double :bike, broken?: true, is_a?: true		     }
+let(:holder)       { ContainerHolder.new			           }
+let(:bike)         { double :bike, is_a?: true                 } 
+let(:working_bike) { double :bike, broken?: false, is_a?: true }
+let(:broken_bike)  { double :bike, broken?: true, is_a?: true  }
 	
 	def fill_holder(holder)
 		holder.capacity.times { holder.dock(bike) }
