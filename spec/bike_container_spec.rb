@@ -58,5 +58,10 @@ let(:broken_bike)  { double :bike, broken?: true, is_a?: true  }
 		expect(-> { holder.dock(:not_bike) }).to raise_error "Sorry, I can only dock bikes"
 	end
 
+	it "should warn you if no bike is selected when using dock" do
+		expect(-> { holder.dock }).to raise_error(RuntimeError)
+	end
+
+
 
 end
