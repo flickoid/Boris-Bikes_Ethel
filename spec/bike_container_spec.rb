@@ -48,4 +48,8 @@ let(:broken_bike)  { double :bike, broken?: true	     }
 	it "should know when it's empty" do 
 		expect(holder).to be_empty
 	end
+
+	it "should not release a bike when it's empty" do 
+		expect(-> {holder.release(bike) }).to raise_error(RuntimeError) if holder.empty?
+	end
 end

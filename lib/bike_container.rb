@@ -21,6 +21,7 @@ module BikeContainer
 	end
 
 	def release(bike)
+		raise "Station is empty" if empty?
 		bikes.delete(bike)
 	end
 
