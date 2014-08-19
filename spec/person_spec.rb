@@ -31,5 +31,4 @@ describe Person do
 		person_with_bike.hit_tree
 		expect(bike).to be_broken
 	end
-
 end

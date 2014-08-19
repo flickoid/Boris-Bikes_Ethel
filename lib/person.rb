@@ -20,6 +20,4 @@ class Person
 	def hit_tree
 		@bike.break!
 	end
-
-
 end

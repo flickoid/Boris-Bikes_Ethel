@@ -4,7 +4,7 @@ describe Van do
 
 let(:broken_bike)  { double :bike, broken?: true, is_a?: true  }
 let(:working_bike) { double :bike, broken?: false, is_a?: true }
-let(:van)		   { Van.new }
+let(:van)		   { Van.new(:capacity => 30)                 }
 
 
 	it "should be able to collect broken bikes" do
@@ -38,6 +38,4 @@ let(:van)		   { Van.new }
 		van.drop_off_working_bikes(station)
 		expect(van.available_bikes).to eq []
 	end
-
-
 end

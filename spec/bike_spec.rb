@@ -17,5 +17,4 @@ let (:bike) {Bike.new}
 		bike.fix!
 		expect(bike).not_to be_broken
 	end
-
 end
