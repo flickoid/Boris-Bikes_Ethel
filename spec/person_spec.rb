@@ -2,9 +2,9 @@ require 'person'
 
 describe Person do
 
-	let(:bike) { Bike.new }
-	let(:person) { Person.new }
-	let(:station) { double :station }
+	let(:bike)             { Bike.new         }
+	let(:person)           { Person.new       }
+	let(:station)          { double :station  }
 	let(:person_with_bike) { Person.new(bike) }
 
 	it "should not have a bike when created" do
